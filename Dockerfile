@@ -12,7 +12,7 @@ RUN set -x && \
 # add unprivileged user for running the service
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN set -x && \
-    git clone --recursive https://github.com/Scifabric/pybossa /opt/pybossa && \
+    git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa && \
     cd /opt/pybossa && \
     pip install -U pip setuptools && \
     pip install -r /opt/pybossa/requirements.txt && \
