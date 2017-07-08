@@ -7,6 +7,9 @@ ENV REDIS_MASTER=mymaster
 RUN set -x && \
     apk --no-cache add postgresql-dev g++ gcc git jpeg-dev libffi-dev libjpeg libxml2-dev libxslt-dev linux-headers musl-dev openssl zlib zlib-dev
 
+RUN set -x && \
+    apk --no-cache add nginx
+
 # install python dependencies with pip
 # install pybossa from git
 # add unprivileged user for running the service
@@ -33,6 +36,10 @@ RUN chown -R pybossa:pybossa /opt/pybossa
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
+
+# Put the nginx config file in the right spot
+ADD /opt/pybossa/contrib/nginx/pybossa /etc/nginx/sites-available/.
+RUN sudo ln -s /etc/nginx/sites-available/pybossa /etc/nginx/sites-enabled/pybossa
 
 # run with unprivileged user
 USER pybossa

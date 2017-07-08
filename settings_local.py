@@ -20,7 +20,7 @@
 
 ## webserver host and port
 HOST = '0.0.0.0'
-PORT = 8080
+PORT = 80
 
 # TODO: set these to something else
 SECRET = 'foobar'
