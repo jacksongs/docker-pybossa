@@ -10,6 +10,11 @@ RUN set -x && \
 RUN set -x && \
     apk --no-cache add nginx
 
+RUN set -x && \
+    apk --no-cache add build-base python-dev
+
+RUN export UWSGI_PROFILE=core
+
 # install python dependencies with pip
 # install pybossa from git
 # add unprivileged user for running the service
@@ -36,10 +41,6 @@ RUN chown -R pybossa:pybossa /opt/pybossa
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-
-# Put the nginx config file in the right spot
-ADD /opt/pybossa/contrib/nginx/pybossa /etc/nginx/sites-available/.
-RUN sudo ln -s /etc/nginx/sites-available/pybossa /etc/nginx/sites-enabled/pybossa
 
 # run with unprivileged user
 USER pybossa
