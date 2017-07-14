@@ -10,9 +10,16 @@ RUN set -x && \
 RUN set -x && \
     apk --no-cache add nginx
 
+# This is needed to build uwsgi
 RUN set -x && \
     apk --no-cache add build-base python-dev
 
+# This is needed for uwsgi routing support
+RUN set -x && \
+    apk --no-cache add pcre pcre-dev
+
+
+# This is from here: https://github.com/unbit/uwsgi/pull/1210
 RUN export UWSGI_PROFILE=core
 
 # install python dependencies with pip
@@ -29,24 +36,28 @@ RUN set -x && \
     adduser -D -G pybossa -s /bin/sh -h /opt/pybossa pybossa && \
     passwd -u pybossa
 
+# Supervisor to manage everything
+RUN apk --no-cache add supervisor
+
+# This is needed for rc-service (service manage)
+RUN set -x && \
+    apk --no-cache add openrc
+
 # variables in these files are modified with sed from /entrypoint.sh
 ADD alembic.ini /opt/pybossa/
 ADD settings_local.py /opt/pybossa/
 
-# TODO: we shouldn't need write permissions on the whole folder
-#   Known files written during runtime:
-#     - /opt/pybossa/pybossa/themes/default/static/.webassets-cache
-#     - /opt/pybossa/alembic.ini and /opt/pybossa/settings_local.py (from entrypoint.sh)
-RUN chown -R pybossa:pybossa /opt/pybossa
-
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD pybossa/contrib/supervisor/supervisord.conf.template /etc/supervisord.conf
+
 # run with unprivileged user
-USER pybossa
+# USER pybossa
 WORKDIR /opt/pybossa
-EXPOSE 8080
+EXPOSE 80
 
 # Background worker is also necessary and should be run from another copy of this container
 #   python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
-CMD ["python", "run.py"]
+CMD ["/usr/bin/supervisord"]
