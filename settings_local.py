@@ -34,13 +34,13 @@ SQLALCHEMY_DATABASE_URI = '{{POSTGRES_URL}}'
 #}
 
 # TODO: set this to something else
-ITSDANGEROUSKEY = 'its-dangerous-key'
+ITSDANGEROUSKEY = '{{DANGER_KEY}}'
 
 ## project configuration
-BRAND = 'PyBossa'
-TITLE = 'PyBossa'
+BRAND = 'BURN THE REGISTER'
+TITLE = 'BURN THE REGISTER'
 LOGO = 'default_logo.svg'
-COPYRIGHT = 'Set Your Institution'
+COPYRIGHT = 'BURN THE REGISTER'
 DESCRIPTION = 'Set the description in your config'
 TERMSOFUSE = 'http://okfn.org/terms-of-use/'
 DATAUSE = 'http://opendatacommons.org/licenses/by/'
