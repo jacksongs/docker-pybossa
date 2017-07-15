@@ -19,12 +19,12 @@
 # DEBUG = False
 
 ## webserver host and port
-HOST = '0.0.0.0'
+HOST = 'burntheregister.com'
 PORT = 80
 
 # TODO: set these to something else
-SECRET = 'foobar'
-SECRET_KEY = 'my-session-secret'
+SECRET = '{{SECRET}}'
+SECRET_KEY = '{{SECRET_KEY}}'
 
 SQLALCHEMY_DATABASE_URI = '{{POSTGRES_URL}}'
 
