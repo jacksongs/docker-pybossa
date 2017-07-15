@@ -36,6 +36,12 @@ SQLALCHEMY_DATABASE_URI = '{{POSTGRES_URL}}'
 # TODO: set this to something else
 ITSDANGEROUSKEY = '{{DANGER_KEY}}'
 
+# Extra info for discourse integration
+DISCOURSE_SECRET = '{{DISCOURSE_SECRET}}'
+DISCOURSE_API_USERNAME = 'jacksongs'
+DISCOURSE_API_KEY = '{{DISCOURSE_KEY}}'
+DISCOURSE_URL = "team.burntheregister.com"
+
 ## project configuration
 BRAND = 'BURN THE REGISTER'
 TITLE = 'BURN THE REGISTER'
