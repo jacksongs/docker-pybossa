@@ -44,8 +44,8 @@ RUN set -x && \
     apk --no-cache add openrc
 
 # variables in these files are modified with sed from /entrypoint.sh
-ADD settings_local.py /opt/pybossa/
 ADD alembic.ini /opt/pybossa/
+ADD settings_local.py /opt/pybossa/
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
