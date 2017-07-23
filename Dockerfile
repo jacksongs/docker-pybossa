@@ -53,6 +53,8 @@ ENTRYPOINT ["/entrypoint.sh"]
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD pybossa/contrib/supervisor/supervisord.conf.template /etc/supervisord.conf
 
+RUN chown pybossa /opt/pybossa/uploads
+
 # run with unprivileged user
 # USER pybossa
 WORKDIR /opt/pybossa
