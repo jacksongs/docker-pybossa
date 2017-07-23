@@ -37,9 +37,9 @@ SQLALCHEMY_DATABASE_URI = '{{POSTGRES_URL}}'
 ITSDANGEROUSKEY = '{{DANGER_KEY}}'
 
 # Extra info for discourse integration
-DISCOURSE_SECRET = '{{DISCOURSE_SECRET}}'
+DISCOURSE_SECRET = 'wilsonstillthebest'
 DISCOURSE_API_USERNAME = 'jacksongs'
-DISCOURSE_API_KEY = '{{DISCOURSE_KEY}}'
+DISCOURSE_API_KEY = 'd3ed8a273ead96fc2e6271360504eaa895603da0082c44a9aee3bf580878fdea'
 DISCOURSE_URL = "team.burntheregister.com"
 
 ## project configuration
@@ -92,12 +92,12 @@ CONTACT_TWITTER = 'PyBossa'
 # LOG_LEVEL = logging.DEBUG
 
 ## Mail setup
-#MAIL_SERVER = 'localhost'
-#MAIL_USERNAME = None
-#MAIL_PASSWORD = None
-#MAIL_PORT = 25
-#MAIL_FAIL_SILENTLY = True
-#MAIL_DEFAULT_SENDER = 'PyBossa Support <info@pybossa.com>'
+MAIL_SERVER = 'smtp.mailgun.org'
+MAIL_USERNAME = 'postmaster@mail.burntheregister.com'
+MAIL_PASSWORD = '10856753314e1a221625b01a49f92feb'
+MAIL_PORT = 587
+MAIL_FAIL_SILENTLY = False
+MAIL_DEFAULT_SENDER = 'BURN THE REGISTER <boss@burntheregister.com>'
 
 ## Announcement messages
 ## Use any combination of the next type of messages: root, user, and app owners
