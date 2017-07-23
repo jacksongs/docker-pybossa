@@ -160,8 +160,8 @@ ACCOUNT_CONFIRMATION_DISABLED = True
 # MAILCHIMP_LIST_ID = "your-list-ID"
 
 # Flickr API key and secret
-# FLICKR_API_KEY = 'your-key'
-# FLICKR_SHARED_SECRET = 'your-secret'
+FLICKR_API_KEY = 'b51ff7210c1fc8790887f28a07971f37'
+FLICKR_SHARED_SECRET = '88e3f9e868fd14bf'
 
 # Dropbox app key
 # DROPBOX_APP_KEY = 'your-key'
