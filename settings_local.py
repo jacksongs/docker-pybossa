@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with PyBossa.  If not, see <http://www.gnu.org/licenses/>.
 
-# DEBUG = False
+DEBUG = False
 
 ## webserver host and port
 HOST = 'burntheregister.com'
@@ -40,7 +40,7 @@ ITSDANGEROUSKEY = '{{DANGER_KEY}}'
 DISCOURSE_SECRET = 'wilsonstillthebest'
 DISCOURSE_API_USERNAME = 'jacksongs'
 DISCOURSE_API_KEY = 'd3ed8a273ead96fc2e6271360504eaa895603da0082c44a9aee3bf580878fdea'
-DISCOURSE_URL = "team.burntheregister.com"
+DISCOURSE_URL = "http://team.burntheregister.com"
 
 ## project configuration set in default.settings
 #BRAND = 'BURN THE REGISTER'
