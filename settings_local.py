@@ -42,16 +42,16 @@ DISCOURSE_API_USERNAME = 'jacksongs'
 DISCOURSE_API_KEY = 'd3ed8a273ead96fc2e6271360504eaa895603da0082c44a9aee3bf580878fdea'
 DISCOURSE_URL = "team.burntheregister.com"
 
-## project configuration
-BRAND = 'BURN THE REGISTER'
-TITLE = 'BURN THE REGISTER'
-LOGO = 'default_logo.svg'
-COPYRIGHT = 'BURN THE REGISTER'
-DESCRIPTION = 'Set the description in your config'
-TERMSOFUSE = 'http://okfn.org/terms-of-use/'
-DATAUSE = 'http://opendatacommons.org/licenses/by/'
-CONTACT_EMAIL = 'info@pybossa.com'
-CONTACT_TWITTER = 'PyBossa'
+## project configuration set in default.settings
+#BRAND = 'BURN THE REGISTER'
+#TITLE = 'BURN THE REGISTER'
+#LOGO = 'default_logo.svg'
+#COPYRIGHT = 'BURN THE REGISTER'
+#DESCRIPTION = 'Set the description in your config'
+#TERMSOFUSE = 'http://okfn.org/terms-of-use/'
+#DATAUSE = 'http://opendatacommons.org/licenses/by/'
+#CONTACT_EMAIL = 'info@pybossa.com'
+#CONTACT_TWITTER = 'PyBossa'
 
 ## Default number of projects per page
 ## APPS_PER_PAGE = 20
