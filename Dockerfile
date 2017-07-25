@@ -33,6 +33,7 @@ RUN set -x && \
     pip install -r /opt/pybossa/requirements.txt
 
 RUN set -x && \
+    rm -rf /opt/pybossa/ && \
     git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa
 
 RUN rm -rf /opt/pybossa/.git/ && \
