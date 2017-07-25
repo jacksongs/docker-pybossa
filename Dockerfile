@@ -32,9 +32,9 @@ RUN set -x && \
     pip install -U pip setuptools && \
     pip install -r /opt/pybossa/requirements.txt
 
-RUN echo "updated"
-
-RUN rm -rf /opt/pybossa/.git/ && \
+RUN rm -rf /opt/pybossa/ && \
+    git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa && \
+    rm -rf /opt/pybossa/.git/ && \
     addgroup pybossa  && \
     adduser -D -G pybossa -s /bin/sh -h /opt/pybossa pybossa && \
     passwd -u pybossa
