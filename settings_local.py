@@ -117,7 +117,6 @@ REDIS_SENTINEL = [('{{REDIS_SENTINEL}}', 26379)]
 REDIS_MASTER = '{{REDIS_MASTER}}'
 REDIS_DB = 0
 REDIS_KEYPREFIX = 'pybossa_cache'
-PYBOSSA_REDIS_CACHE_DISABLED='1'
 
 ## Allowed upload extensions
 ALLOWED_EXTENSIONS = ['js', 'css', 'png', 'jpg', 'jpeg', 'gif', 'zip']
