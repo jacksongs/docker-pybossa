@@ -33,8 +33,8 @@ RUN set -x && \
     pip install -r /opt/pybossa/requirements.txt
 
 RUN set -x && \
-    rm -rf /opt/pybossa/ && \
-    git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa
+    cd /opt/pybossa/pybossa/themes/burn && \
+    git pull origin master
 
 RUN rm -rf /opt/pybossa/.git/ && \
     addgroup pybossa  && \
