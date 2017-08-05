@@ -54,7 +54,7 @@ ADD alembic.ini /opt/pybossa/
 ADD settings_local.py /opt/pybossa/
 
 # For ssl certs
-RUN pip install certbox-nginx
+RUN pip install certbot-nginx
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
