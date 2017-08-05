@@ -55,6 +55,7 @@ ADD settings_local.py /opt/pybossa/
 
 # For ssl certs
 RUN pip install certbot-nginx
+RUN certbot certonly --standalone --email jacksongs@gmail.com -d burntheregister.com
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
