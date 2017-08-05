@@ -27,11 +27,12 @@ RUN export UWSGI_PROFILE=core
 # add unprivileged user for running the service
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN set -x && \
-    git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa && \
+    git clone https://github.com/jacksongs/pybossa /opt/pybossa && \
     cd /opt/pybossa && \
     pip install -U pip setuptools && \
     pip install -r /opt/pybossa/requirements.txt
 
+# ADD THE THEME
 RUN set -x && \
     cd /opt/pybossa/pybossa/themes/burn && \
     git pull origin master
@@ -52,6 +53,7 @@ RUN set -x && \
 ADD alembic.ini /opt/pybossa/
 ADD settings_local.py /opt/pybossa/
 
+# For ssl certs
 RUN pip install certbox-nginx
 
 ADD entrypoint.sh /
