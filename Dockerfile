@@ -70,8 +70,6 @@ WORKDIR /opt/pybossa
 EXPOSE 80
 EXPOSE 443
 
-RUN certbot certonly --standalone --email jacksongs@gmail.com -d burntheregister.com --agree-tos --non-interactive
-
 # Background worker is also necessary and should be run from another copy of this container
 #   python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
 CMD ["/usr/bin/supervisord"]
