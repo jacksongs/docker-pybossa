@@ -52,6 +52,8 @@ RUN set -x && \
 ADD alembic.ini /opt/pybossa/
 ADD settings_local.py /opt/pybossa/
 
+RUN pip install certbox-nginx
+
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
