@@ -40,7 +40,7 @@ ITSDANGEROUSKEY = '{{DANGER_KEY}}'
 DISCOURSE_SECRET = 'wilsonstillthebest'
 DISCOURSE_API_USERNAME = 'jacksongs'
 DISCOURSE_API_KEY = 'd3ed8a273ead96fc2e6271360504eaa895603da0082c44a9aee3bf580878fdea'
-DISCOURSE_URL = "http://talk.burntheregister.com"
+DISCOURSE_URL = "https://talk.burntheregister.com"
 
 ## project configuration set in default.settings
 #BRAND = 'BURN THE REGISTER'
