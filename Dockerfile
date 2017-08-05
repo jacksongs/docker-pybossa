@@ -27,7 +27,7 @@ RUN export UWSGI_PROFILE=core
 # add unprivileged user for running the service
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN set -x && \
-    git clone https://github.com/jacksongs/pybossa /opt/pybossa && \
+    git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa && \
     cd /opt/pybossa && \
     pip install -U pip setuptools && \
     pip install -r /opt/pybossa/requirements.txt
@@ -69,6 +69,8 @@ RUN chown pybossa /opt/pybossa/uploads
 WORKDIR /opt/pybossa
 EXPOSE 80
 EXPOSE 443
+
+RUN certbot certonly --standalone --email jacksongs@gmail.com -d burntheregister.com --agree-tos --non-interactive
 
 # Background worker is also necessary and should be run from another copy of this container
 #   python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
