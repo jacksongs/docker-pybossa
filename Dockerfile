@@ -55,7 +55,6 @@ ADD settings_local.py /opt/pybossa/
 
 # For ssl certs
 RUN pip install certbot-nginx
-RUN certbot certonly --standalone --email jacksongs@gmail.com -d burntheregister.com --agree-tos --non-interactive
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
@@ -69,6 +68,9 @@ RUN chown pybossa /opt/pybossa/uploads
 # USER pybossa
 WORKDIR /opt/pybossa
 EXPOSE 80
+EXPOSE 443
+
+RUN certbot certonly --standalone --email jacksongs@gmail.com -d burntheregister.com --agree-tos --non-interactive
 
 # Background worker is also necessary and should be run from another copy of this container
 #   python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
