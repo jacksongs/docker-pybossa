@@ -97,7 +97,7 @@ MAIL_USERNAME = 'postmaster@mail.burntheregister.com'
 MAIL_PASSWORD = '10856753314e1a221625b01a49f92feb'
 MAIL_PORT = 587
 MAIL_FAIL_SILENTLY = False
-MAIL_DEFAULT_SENDER = 'BURN THE REGISTER <boss@burntheregister.com>'
+MAIL_DEFAULT_SENDER = 'BURN THE REGISTER <jackson@mail.burntheregister.com>'
 
 ## Announcement messages
 ## Use any combination of the next type of messages: root, user, and app owners
