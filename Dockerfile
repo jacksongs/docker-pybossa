@@ -34,6 +34,7 @@ RUN set -x && \
 
 # ADD THE THEME
 RUN set -x && \
+    echo a! && \ 
     cd /opt/pybossa/pybossa/themes/burn && \
     git pull origin master
 
