@@ -32,6 +32,11 @@ RUN set -x && \
     pip install -U pip setuptools && \
     pip install -r /opt/pybossa/requirements.txt
 
+RUN set -x && \
+    echo a! && \
+    cd /opt/pybossa && \
+    git pull origin master
+
 # ADD THE THEME
 RUN set -x && \
     echo a! && \ 

@@ -86,10 +86,10 @@ DISCOURSE_URL = "https://talk.burntheregister.com"
 # Sentry configuration
 # SENTRY_DSN=''
 ## set path to enable
-# LOG_FILE = '/path/to/log/file'
+LOG_FILE = '/tmp/pybossa.log'
 ## Optional log level
-# import logging
-# LOG_LEVEL = logging.DEBUG
+import logging
+LOG_LEVEL = logging.DEBUG
 
 ## Mail setup
 MAIL_SERVER = 'smtp.mailgun.org'
@@ -117,7 +117,7 @@ REDIS_SENTINEL = [('{{REDIS_SENTINEL}}', 26379)]
 REDIS_MASTER = '{{REDIS_MASTER}}'
 REDIS_DB = 0
 REDIS_KEYPREFIX = 'pybossa_cache'
-PYBOSSA_REDIS_CACHE_DISABLED='1'
+#PYBOSSA_REDIS_CACHE_DISABLED='1'
 
 ## Allowed upload extensions
 ALLOWED_EXTENSIONS = ['js', 'css', 'png', 'jpg', 'jpeg', 'gif', 'zip']
