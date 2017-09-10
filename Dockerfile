@@ -33,13 +33,13 @@ RUN set -x && \
     pip install -r /opt/pybossa/requirements.txt
 
 RUN set -x && \
-    echo a! && \
+    echo !? && \
     cd /opt/pybossa && \
     git pull origin master
 
 # ADD THE THEME
 RUN set -x && \
-    echo a! && \ 
+    echo qa! && \ 
     cd /opt/pybossa/pybossa/themes/burn && \
     git pull origin master
 
