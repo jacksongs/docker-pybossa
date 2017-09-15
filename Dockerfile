@@ -33,7 +33,7 @@ RUN set -x && \
     pip install -r /opt/pybossa/requirements.txt
 
 RUN set -x && \
-    echo !!yas? && \
+    echo !!ayas? && \
     cd /opt/pybossa && \
     git pull origin master
 
