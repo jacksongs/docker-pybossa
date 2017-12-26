@@ -18,6 +18,9 @@ RUN set -x && \
 RUN set -x && \
     apk --no-cache add pcre pcre-dev
 
+# For ldap in pybossa 2.8
+RUN set -x && \
+    apk --no-cache add openldap-dev openldap-clients openldap-back-hdb openldap-back-bdb ldapvi
 
 # This is from here: https://github.com/unbit/uwsgi/pull/1210
 RUN export UWSGI_PROFILE=core
@@ -48,6 +51,14 @@ RUN rm -rf /opt/pybossa/.git/ && \
     adduser -D -G pybossa -s /bin/sh -h /opt/pybossa pybossa && \
     passwd -u pybossa
 
+# I got this error: ImportError: C extension: umpy.core.multiarray failed to import not built.
+# it required a numpy/pandas uninstall/install
+RUN set -x && \
+    pip uninstall -y numpy && \
+    pip uninstall -y pandas && \
+    pip install numpy && \
+    pip install pandas
+
 # Supervisor to manage everything
 RUN apk --no-cache add supervisor
 
@@ -59,8 +70,6 @@ RUN set -x && \
 ADD alembic.ini /opt/pybossa/
 ADD settings_local.py /opt/pybossa/
 
-# For ssl certs
-RUN pip install certbot-nginx
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
