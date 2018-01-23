@@ -42,7 +42,7 @@ RUN set -x && \
 
 # ADD THE THEME
 RUN set -x && \
-    echo aaqa!?!talk! && \ 
+    echo search! && \ 
     cd /opt/pybossa/pybossa/themes/burn && \
     git pull origin master
 
