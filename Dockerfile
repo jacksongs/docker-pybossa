@@ -40,6 +40,14 @@ RUN set -x && \
     cd /opt/pybossa && \
     git pull origin master
 
+# I got this error: ImportError: C extension: umpy.core.multiarray failed to import not built.
+# it required a numpy/pandas uninstall/install
+RUN set -x && \
+    pip uninstall -y numpy && \
+    pip uninstall -y pandas && \
+    pip install numpy && \
+    pip install pandas
+
 # ADD THE THEME
 RUN set -x && \
     echo search! && \ 
@@ -50,14 +58,6 @@ RUN rm -rf /opt/pybossa/.git/ && \
     addgroup pybossa  && \
     adduser -D -G pybossa -s /bin/sh -h /opt/pybossa pybossa && \
     passwd -u pybossa
-
-# I got this error: ImportError: C extension: umpy.core.multiarray failed to import not built.
-# it required a numpy/pandas uninstall/install
-RUN set -x && \
-    pip uninstall -y numpy && \
-    pip uninstall -y pandas && \
-    pip install numpy && \
-    pip install pandas
 
 # Supervisor to manage everything
 RUN apk --no-cache add supervisor
