@@ -30,6 +30,7 @@ RUN export UWSGI_PROFILE=core
 # add unprivileged user for running the service
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN set -x && \
+    echo a && \
     git clone --recursive https://github.com/jacksongs/pybossa /opt/pybossa && \
     cd /opt/pybossa && \
     pip install -U pip setuptools && \
@@ -42,15 +43,15 @@ RUN set -x && \
 
 # I got this error: ImportError: C extension: umpy.core.multiarray failed to import not built.
 # it required a numpy/pandas uninstall/install
-RUN set -x && \
-    pip uninstall -y numpy && \
-    pip uninstall -y pandas && \
-    pip install numpy && \
-    pip install pandas
+#RUN set -x && \
+#    pip uninstall -y numpy && \
+#    pip uninstall -y pandas && \
+#    pip install numpy && \
+#    pip install pandas
 
 # ADD THE THEME
 RUN set -x && \
-    echo search! && \ 
+    echo search!! && \ 
     cd /opt/pybossa/pybossa/themes/burn && \
     git pull origin master
 
